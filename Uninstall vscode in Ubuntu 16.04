@@ -1,0 +1,29 @@
+How to completely remove Visual Studio Code in Ubuntu 16.04 LTS (installed using apt)
+
+To uninstall vscode program via terminal just type:
+	sudo apt purge code
+
+To remove vscode icons and other realated items:
+	sudo apt autoremove
+
+	Here the problem exist. When you try re-installing vscode, settings from your previous vscode 
+	installation resurfaces such as but not limited to plugins, themes, keybinds, etc. Even your 
+	previously opened project, which should not be the case as it is a brand new intallation.
+
+In this case, you should remove the following folders:
+	a. specific user settings located in $HOME/.config/Code
+
+		xxx-xxxx:~$ cd .config
+		xxx-xxxx:~/.config$ rm -R Code
+
+	and
+
+	b. extensions found in $HOME/.vscode
+
+		xxx-xxxx:~$ rm -R .vscode
+
+Or search them and manually remove said folders.
+
+
+Hope this helps.
+
